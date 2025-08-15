@@ -1,4 +1,5 @@
 import 'package:cerci_online/core/theme/app_colors.dart';
+import 'package:cerci_online/core/theme/navbar/navbar_theme.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -36,5 +37,7 @@ class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
       ),
     ),
+
+    navigationBarTheme: AppNavBarTheme.light,
   );
 }
