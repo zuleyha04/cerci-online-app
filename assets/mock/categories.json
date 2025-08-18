@@ -1,0 +1,8 @@
+{
+  "data": [
+    { "id": "cat_pizza", "name": "Pizza", "iconUrl": "https://picsum.photos/64?pizza", "order": 1 },
+    { "id": "cat_burger", "name": "Burger", "iconUrl": "https://picsum.photos/64?burger", "order": 2 },
+    { "id": "cat_drink", "name": "İçecek", "iconUrl": "https://picsum.photos/64?drink", "order": 3 },
+    { "id": "cat_dessert", "name": "Tatlı", "iconUrl": "https://picsum.photos/64?dessert", "order": 4 }
+  ]
+}

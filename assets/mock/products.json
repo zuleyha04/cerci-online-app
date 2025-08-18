@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "id": "PRD_1001",
+      "name": "Margherita",
+      "price": 169.90,
+      "imageUrl": "https://picsum.photos/400?marg",
+      "categoryId": "cat_pizza",
+      "isBestSeller": true,
+      "isFavorite": false
+    },
+    {
+      "id": "PRD_1002",
+      "name": "Double Burger",
+      "price": 199.90,
+      "imageUrl": "https://picsum.photos/400?double",
+      "categoryId": "cat_burger",
+      "isBestSeller": true,
+      "isFavorite": true
+    },
+    {
+      "id": "PRD_2001",
+      "name": "Kola 330ml",
+      "price": 39.90,
+      "imageUrl": "https://picsum.photos/400?cola",
+      "categoryId": "cat_drink",
+      "isBestSeller": false,
+      "isFavorite": false
+    }
+  ]
+}
