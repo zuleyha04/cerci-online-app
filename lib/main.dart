@@ -1,12 +1,14 @@
 import 'package:cerci_online/core/configs/router/route_names.dart';
+import 'package:cerci_online/core/di/locator.dart';
 import 'package:cerci_online/core/theme/app_theme.dart';
 import 'package:cerci_online/features/splash/presentation/pages/splash.dart';
 import 'package:cerci_online/shell/tabs/presentation/pages/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await setupLocator();
   runApp(const MyApp());
 }
 
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
             RouteNames.tabs: (_) => const TabsPage(),
 
             //TODO: off-tab olanlar daha sonra eklenecek
-            // RouteNames.categories:     (_) => const CategoriesPage(),
+            // RouteNames.categories:  (_) => const CategoriesPage(),
           },
           theme: AppTheme.appTheme,
         );
