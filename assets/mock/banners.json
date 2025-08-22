@@ -1,6 +1,6 @@
 {
   "data": [
-    { "id": "bn_1", "imageUrl": "https://picsum.photos/1200/500?1", "title": "Süper İndirim", "deeplink": "/category/cat_pizza" },
-    { "id": "bn_2", "imageUrl": "https://picsum.photos/1200/500?2", "title": "2 Al 1 Öde", "deeplink": "/product/PRD_1002" }
+    { "id": "bn_1", "imageUrl": "https://picsum.photos/id/1018/1200/500", "title": "Süper İndirim", "deeplink": "/category/cat_pizza" },
+    { "id": "bn_2", "imageUrl": "https://picsum.photos/id/11/1200/500", "title": "2 Al 1 Öde", "deeplink": "/product/PRD_1002" }
   ]
 }
