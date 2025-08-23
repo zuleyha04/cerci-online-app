@@ -1,6 +1,9 @@
 import 'package:cerci_online/features/home/data/datasources/banner_local_data_source.dart';
+import 'package:cerci_online/features/home/data/datasources/category_local_data_source.dart';
 import 'package:cerci_online/features/home/data/repositories/banner_repository_impl.dart';
+import 'package:cerci_online/features/home/data/repositories/category_repository_impl.dart';
 import 'package:cerci_online/features/home/domain/repositories/banner_repository.dart';
+import 'package:cerci_online/features/home/domain/repositories/category_repository.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -16,5 +19,13 @@ void _registerHome() {
 
   sl.registerLazySingleton<BannerRepository>(
     () => BannerRepositoryImpl(sl<BannerLocalDataSource>()),
+  );
+
+  sl.registerLazySingleton<CategoryRepository>(
+    () => CategoryRepositoryImpl(sl<CategoryLocalDataSource>()),
+  );
+
+  sl.registerLazySingleton<CategoryLocalDataSource>(
+    () => CategoryLocalDataSource(),
   );
 }

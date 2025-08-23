@@ -1,6 +1,6 @@
-import 'package:cerci_online/features/home/domain/entities/category.dart';
+import 'package:cerci_online/features/home/domain/entities/category_item.dart';
 
-class CategoryModel extends Category {
+class CategoryModel extends CategoryItem {
   CategoryModel({
     required super.id,
     required super.name,

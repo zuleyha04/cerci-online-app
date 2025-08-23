@@ -28,9 +28,6 @@ class MyApp extends StatelessWidget {
           routes: {
             RouteNames.splash: (_) => const SplashPage(),
             RouteNames.tabs: (_) => const TabsPage(),
-
-            //TODO: off-tab olanlar daha sonra eklenecek
-            // RouteNames.categories:  (_) => const CategoriesPage(),
           },
           theme: AppTheme.appTheme,
         );
