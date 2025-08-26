@@ -1,5 +1,5 @@
 import 'package:cerci_online/core/di/locator.dart';
-import 'package:cerci_online/core/widgets/myAppBar.dart';
+import 'package:cerci_online/core/widgets/common_appBar.dart';
 import 'package:cerci_online/features/home/domain/repositories/banner_repository.dart';
 import 'package:cerci_online/features/home/domain/repositories/category_repository.dart';
 import 'package:cerci_online/features/home/presentation/store/home_store.dart';
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
               HomeStore(sl<BannerRepository>(), sl<CategoryRepository>())
                 ..loadAll(),
       child: Scaffold(
-        appBar: MyAppBar(),
+        appBar: CommonAppBar(),
         body: Consumer<HomeStore>(
           builder: (context, store, child) {
             if (store.isLoading) {

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({super.key});
+class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CommonAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
