@@ -2,44 +2,41 @@ import 'package:cerci_online/core/di/locator.dart';
 import 'package:cerci_online/core/widgets/myAppBar.dart';
 import 'package:cerci_online/features/home/domain/repositories/banner_repository.dart';
 import 'package:cerci_online/features/home/domain/repositories/category_repository.dart';
-import 'package:cerci_online/features/home/presentation/cubit/home_cubit.dart';
-import 'package:cerci_online/features/home/presentation/cubit/home_state.dart';
+import 'package:cerci_online/features/home/presentation/store/home_store.dart';
 import 'package:cerci_online/features/home/presentation/widgets/banner_slider.dart';
 import 'package:cerci_online/features/home/presentation/widgets/category_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return ChangeNotifierProvider(
       create:
           (_) =>
-              HomeCubit(sl<BannerRepository>(), sl<CategoryRepository>())
+              HomeStore(sl<BannerRepository>(), sl<CategoryRepository>())
                 ..loadAll(),
-
       child: Scaffold(
         appBar: MyAppBar(),
-        body: BlocBuilder<HomeCubit, HomeState>(
-          builder: (context, state) {
-            if (state is HomeLoading) {
+        body: Consumer<HomeStore>(
+          builder: (context, store, child) {
+            if (store.isLoading) {
               return const Center(child: CircularProgressIndicator());
-            } else if (state is HomeLoaded) {
+            } else if (store.error != null) {
+              return Center(child: Text(store.error!));
+            } else {
               return ListView(
-                padding: const EdgeInsets.all(12),
+                padding: EdgeInsets.all(12),
                 children: [
-                  BannerSlider(banners: state.banners),
+                  BannerSlider(banners: store.banners),
                   SizedBox(height: 16.h),
-                  CategoryList(categories: state.categories),
+                  CategoryList(categories: store.categories),
                 ],
               );
-            } else if (state is HomeError) {
-              return Center(child: Text(state.message));
             }
-            return const SizedBox.shrink();
           },
         ),
       ),
