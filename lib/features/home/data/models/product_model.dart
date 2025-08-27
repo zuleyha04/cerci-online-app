@@ -1,6 +1,6 @@
-import 'package:cerci_online/features/home/domain/entities/product.dart';
+import 'package:cerci_online/features/home/domain/entities/product_item.dart';
 
-class ProductModel extends Product {
+class ProductModel extends ProductItem {
   ProductModel({
     required super.id,
     required super.name,

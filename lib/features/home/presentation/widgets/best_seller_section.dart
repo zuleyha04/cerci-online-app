@@ -1,0 +1,41 @@
+import 'package:cerci_online/core/widgets/product_card.dart';
+import 'package:cerci_online/features/home/domain/entities/product_item.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class BestSellerSection extends StatelessWidget {
+  final List<ProductItem> product;
+  const BestSellerSection({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+          child: Text(
+            "Çok Satanlar",
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+          height: 220.h,
+          child: ListView.separated(
+            separatorBuilder: (_, _) => SizedBox(width: 5.w),
+            itemCount: product.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return ProductCard(
+                product: product[index],
+                showFavorite: true,
+                showBestSeller: true,
+                //TODO: (onTap) ilgili ürünün detay sayfasına yönlendirilecek
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}

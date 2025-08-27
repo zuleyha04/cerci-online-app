@@ -2,8 +2,10 @@ import 'package:cerci_online/core/di/locator.dart';
 import 'package:cerci_online/core/widgets/common_appBar.dart';
 import 'package:cerci_online/features/home/domain/repositories/banner_repository.dart';
 import 'package:cerci_online/features/home/domain/repositories/category_repository.dart';
+import 'package:cerci_online/features/home/domain/repositories/product_repository.dart';
 import 'package:cerci_online/features/home/presentation/store/home_store.dart';
 import 'package:cerci_online/features/home/presentation/widgets/banner_slider.dart';
+import 'package:cerci_online/features/home/presentation/widgets/best_seller_section.dart';
 import 'package:cerci_online/features/home/presentation/widgets/category_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,9 +18,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create:
-          (_) =>
-              HomeStore(sl<BannerRepository>(), sl<CategoryRepository>())
-                ..loadAll(),
+          (_) => HomeStore(
+            sl<BannerRepository>(),
+            sl<CategoryRepository>(),
+            sl<ProductRepository>(),
+          )..loadAll(),
       child: Scaffold(
         appBar: CommonAppBar(),
         body: Consumer<HomeStore>(
@@ -34,6 +38,9 @@ class HomePage extends StatelessWidget {
                   BannerSlider(banners: store.banners),
                   SizedBox(height: 16.h),
                   CategoryList(categories: store.categories),
+                  SizedBox(height: 8.h),
+                  BestSellerSection(product: store.bestSellers),
+                  SizedBox(height: 10.h),
                 ],
               );
             }

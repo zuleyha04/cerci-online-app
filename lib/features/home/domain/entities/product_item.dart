@@ -1,4 +1,4 @@
-class Product {
+class ProductItem {
   final String id;
   final String name;
   final double price;
@@ -7,7 +7,7 @@ class Product {
   final bool isBestSeller;
   final bool isFavorite;
 
-  const Product({
+  const ProductItem({
     required this.id,
     required this.name,
     required this.price,
