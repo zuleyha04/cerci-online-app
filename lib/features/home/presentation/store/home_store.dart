@@ -20,12 +20,14 @@ class HomeStore extends ChangeNotifier {
   List<BannerItem> _banners = [];
   List<CategoryItem> _categories = [];
   List<ProductItem> _bestSellers = [];
+  List<ProductItem> _products = [];
   bool _isLoading = false;
   String? _error;
 
   List<BannerItem> get banners => _banners;
   List<CategoryItem> get categories => _categories;
   List<ProductItem> get bestSellers => _bestSellers;
+  List<ProductItem> get products => _products;
   bool get isLoading => _isLoading;
   String? get error => _error;
 
@@ -85,6 +87,18 @@ class HomeStore extends ChangeNotifier {
       _bestSellers = await productRepository.getBestSellerProducts();
     } catch (e) {
       _error = "Failed to load data";
+    }
+
+    _endLoading();
+  }
+
+  Future<void> loadProductsByCategory(String categoryId) async {
+    _startLoading();
+
+    try {
+      _products = await productRepository.getProductsByCategory(categoryId);
+    } catch (e) {
+      _error = "Failed to load produucts for category $categoryId";
     }
 
     _endLoading();

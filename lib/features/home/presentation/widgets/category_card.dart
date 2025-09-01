@@ -1,8 +1,11 @@
 import 'package:cerci_online/core/theme/app_colors.dart';
 import 'package:cerci_online/features/home/domain/entities/category_item.dart';
+import 'package:cerci_online/features/home/presentation/pages/product_list_page.dart';
+import 'package:cerci_online/features/home/presentation/store/home_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class CategoryCard extends StatelessWidget {
   final CategoryItem category;
@@ -20,8 +23,19 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = context.read<HomeStore>();
+
     return GestureDetector(
-      onTap: onTap ?? () => print("${category.name} seçildi !"),
+      onTap: () async {
+        await store.loadProductsByCategory(category.id);
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => ProductListPage(categoryName: category.name),
+          ),
+        );
+      },
       child: Container(
         width: width,
         decoration: BoxDecoration(

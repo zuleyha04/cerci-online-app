@@ -1,11 +1,11 @@
 import 'package:cerci_online/features/home/domain/entities/product_item.dart';
 import 'package:cerci_online/features/home/domain/repositories/product_repository.dart';
 
-class GetBestSellerProducts {
+class GetProductsByCategory {
   final ProductRepository repository;
-  GetBestSellerProducts(this.repository);
+  GetProductsByCategory(this.repository);
 
-  Future<List<ProductItem>> call() async {
-    return await repository.getBestSellerProducts();
+  Future<List<ProductItem>> call(String categoryId) async {
+    return await repository.getProductsByCategory(categoryId);
   }
 }

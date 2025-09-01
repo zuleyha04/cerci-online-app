@@ -1,8 +1,4 @@
-import 'package:cerci_online/core/di/locator.dart';
 import 'package:cerci_online/core/widgets/common_appBar.dart';
-import 'package:cerci_online/features/home/domain/repositories/banner_repository.dart';
-import 'package:cerci_online/features/home/domain/repositories/category_repository.dart';
-import 'package:cerci_online/features/home/domain/repositories/product_repository.dart';
 import 'package:cerci_online/features/home/presentation/store/home_store.dart';
 import 'package:cerci_online/features/home/presentation/widgets/banner_slider.dart';
 import 'package:cerci_online/features/home/presentation/widgets/best_seller_section.dart';
@@ -16,36 +12,28 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create:
-          (_) => HomeStore(
-            sl<BannerRepository>(),
-            sl<CategoryRepository>(),
-            sl<ProductRepository>(),
-          )..loadAll(),
-      child: Scaffold(
-        appBar: CommonAppBar(),
-        body: Consumer<HomeStore>(
-          builder: (context, store, child) {
-            if (store.isLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (store.error != null) {
-              return Center(child: Text(store.error!));
-            } else {
-              return ListView(
-                padding: EdgeInsets.all(12),
-                children: [
-                  BannerSlider(banners: store.banners),
-                  SizedBox(height: 16.h),
-                  CategoryList(categories: store.categories),
-                  SizedBox(height: 8.h),
-                  BestSellerSection(product: store.bestSellers),
-                  SizedBox(height: 10.h),
-                ],
-              );
-            }
-          },
-        ),
+    return Scaffold(
+      appBar: CommonAppBar(),
+      body: Consumer<HomeStore>(
+        builder: (context, store, child) {
+          if (store.isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (store.error != null) {
+            return Center(child: Text(store.error!));
+          } else {
+            return ListView(
+              padding: EdgeInsets.all(12),
+              children: [
+                BannerSlider(banners: store.banners),
+                SizedBox(height: 16.h),
+                CategoryList(categories: store.categories),
+                SizedBox(height: 8.h),
+                BestSellerSection(product: store.bestSellers),
+                SizedBox(height: 10.h),
+              ],
+            );
+          }
+        },
       ),
     );
   }

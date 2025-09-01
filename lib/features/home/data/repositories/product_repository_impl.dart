@@ -1,5 +1,3 @@
-import 'package:cerci_online/core/configs/assets/app_mock_paths.dart';
-import 'package:cerci_online/core/utils/json_loader.dart';
 import 'package:cerci_online/features/home/data/datasources/product_local_data_source.dart';
 import 'package:cerci_online/features/home/domain/repositories/product_repository.dart';
 import '../../domain/entities/product_item.dart';
@@ -11,9 +9,21 @@ class ProductRepositoryImpl implements ProductRepository {
 
   @override
   Future<List<ProductItem>> getBestSellerProducts() async {
-    final raw = await JsonLoader.loadList(AppMockPaths.products);
-    return raw
-        .map<ProductItem>((e) => ProductModel.fromMap(e).toEntity())
-        .toList();
+    final raw = await localDataSource.getProducts();
+    final allProducts =
+        raw
+            .map<ProductItem>((e) => ProductModel.fromMap(e).toEntity())
+            .toList();
+    return allProducts.where((p) => p.isBestSeller).toList();
+  }
+
+  @override
+  Future<List<ProductItem>> getProductsByCategory(String categoryId) async {
+    final raw = await localDataSource.getProducts();
+    final allProducts =
+        raw
+            .map<ProductItem>((e) => ProductModel.fromMap(e).toEntity())
+            .toList();
+    return allProducts.where((p) => p.categoryId == categoryId).toList();
   }
 }
