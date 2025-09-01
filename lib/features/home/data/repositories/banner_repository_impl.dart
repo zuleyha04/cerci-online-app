@@ -10,6 +10,8 @@ class BannerRepositoryImpl implements BannerRepository {
   @override
   Future<List<BannerItem>> getBanners() async {
     final raw = await bannerLocalDataSource.getBanners();
-    return raw.map<BannerItem>((e) => BannerItemModel.fromMap(e)).toList();
+    return raw
+        .map<BannerItem>((e) => BannerItemModel.fromMap(e).toEntity())
+        .toList();
   }
 }

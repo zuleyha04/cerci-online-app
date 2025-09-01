@@ -31,4 +31,14 @@ class ProductModel extends ProductItem {
       isFavorite: (map['isFavorite'] as bool?) ?? false,
     );
   }
+
+  ProductItem toEntity() => ProductItem(
+    id: id,
+    name: name,
+    price: price,
+    imageUrl: imageUrl,
+    categoryId: categoryId,
+    isBestSeller: isBestSeller,
+    isFavorite: isFavorite,
+  );
 }

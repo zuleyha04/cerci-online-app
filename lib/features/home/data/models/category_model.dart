@@ -16,4 +16,7 @@ class CategoryModel extends CategoryItem {
       order: (map['order'] as num?)?.toInt() ?? 0,
     );
   }
+
+  CategoryItem toEntity() =>
+      CategoryItem(id: id, name: name, iconUrl: iconUrl, order: order);
 }

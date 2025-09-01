@@ -13,10 +13,7 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<List<ProductItem>> getBestSellerProducts() async {
     final raw = await JsonLoader.loadList(AppMockPaths.products);
     return raw
-        .map<ProductItem>(
-          (e) => ProductModel.fromMap(e as Map<String, dynamic>),
-        )
-        .where((p) => p.isBestSeller)
+        .map<ProductItem>((e) => ProductModel.fromMap(e).toEntity())
         .toList();
   }
 }

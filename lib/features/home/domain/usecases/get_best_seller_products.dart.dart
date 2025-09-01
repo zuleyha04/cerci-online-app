@@ -5,7 +5,8 @@ class GetBestSellerProducts {
   final ProductRepository repository;
   GetBestSellerProducts(this.repository);
 
-  Future<List<ProductItem>> call() {
-    return repository.getBestSellerProducts();
+  Future<List<ProductItem>> call() async {
+    final bestSellerPtoducts = await repository.getBestSellerProducts();
+    return bestSellerPtoducts.where((p) => p.isBestSeller).toList();
   }
 }

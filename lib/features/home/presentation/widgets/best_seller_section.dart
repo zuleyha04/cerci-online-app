@@ -30,6 +30,8 @@ class BestSellerSection extends StatelessWidget {
                 product: product[index],
                 showFavorite: true,
                 showBestSeller: true,
+                width: 145.w,
+                height: 200.h,
                 //TODO: (onTap) ilgili ürünün detay sayfasına yönlendirilecek
               );
             },

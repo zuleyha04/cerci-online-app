@@ -12,10 +12,6 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Future<List<CategoryItem>> getCategories() async {
     final raw = await categoryLocalDataSource.getCategories();
 
-    final list =
-        raw.map<CategoryItem>((e) => CategoryModel.fromMap(e)).toList();
-    list.sort((a, b) => a.order.compareTo(b.order));
-
-    return list;
+    return raw.map((e) => CategoryModel.fromMap(e).toEntity()).toList();
   }
 }

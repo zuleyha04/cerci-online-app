@@ -8,6 +8,8 @@ class ProductCard extends StatelessWidget {
   final bool showFavorite;
   final bool showBestSeller;
   final VoidCallback? onTap;
+  final double? width;
+  final double? height;
 
   const ProductCard({
     super.key,
@@ -15,6 +17,8 @@ class ProductCard extends StatelessWidget {
     required this.showFavorite,
     required this.showBestSeller,
     this.onTap,
+    this.width,
+    this.height,
   });
 
   @override
@@ -22,8 +26,8 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 145.w,
-        height: 220.h,
+        width: width,
+        height: height,
         margin: EdgeInsets.only(right: 12.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),

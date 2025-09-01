@@ -16,4 +16,7 @@ class BannerItemModel extends BannerItem {
       deeplink: (map['deeplink'] as String?) ?? '',
     );
   }
+
+  BannerItem toEntity() =>
+      BannerItem(id: id, imageUrl: imageUrl, title: title, deeplink: deeplink);
 }
