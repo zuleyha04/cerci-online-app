@@ -32,7 +32,11 @@ class BestSellerSection extends StatelessWidget {
                 showBestSeller: true,
                 width: 145.w,
                 height: 200.h,
+                margin: EdgeInsets.only(right: 12.w),
                 //TODO: (onTap) ilgili ürünün detay sayfasına yönlendirilecek
+                onTap: () {
+                  print(" detay sayfasına yönlendirilecek");
+                },
               );
             },
           ),

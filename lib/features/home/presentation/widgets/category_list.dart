@@ -15,7 +15,7 @@ class CategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = context.read<HomeStore>();
+    final store = context.watch<HomeStore>();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

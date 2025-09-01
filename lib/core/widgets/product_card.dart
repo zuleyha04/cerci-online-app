@@ -10,6 +10,7 @@ class ProductCard extends StatelessWidget {
   final VoidCallback? onTap;
   final double? width;
   final double? height;
+  final EdgeInsetsGeometry? margin;
 
   const ProductCard({
     super.key,
@@ -19,6 +20,7 @@ class ProductCard extends StatelessWidget {
     this.onTap,
     this.width,
     this.height,
+    this.margin,
   });
 
   @override
@@ -28,7 +30,7 @@ class ProductCard extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        margin: EdgeInsets.only(right: 12.w),
+        margin: margin,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.white,
