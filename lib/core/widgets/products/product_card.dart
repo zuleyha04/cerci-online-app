@@ -1,26 +1,26 @@
 import 'package:cerci_online/core/theme/app_colors.dart';
-import 'package:cerci_online/features/home/domain/entities/product_item.dart';
+import 'package:cerci_online/features/product/domain/entities/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductCard extends StatelessWidget {
-  final ProductItem product;
+  final Product product;
   final bool showFavorite;
   final bool showBestSeller;
-  final VoidCallback? onTap;
   final double? width;
   final double? height;
   final EdgeInsetsGeometry? margin;
+  final VoidCallback? onTap;
 
   const ProductCard({
     super.key,
     required this.product,
     required this.showFavorite,
     required this.showBestSeller,
-    this.onTap,
     this.width,
     this.height,
     this.margin,
+    this.onTap,
   });
 
   @override
@@ -63,19 +63,14 @@ class ProductCard extends StatelessWidget {
                     Positioned(
                       top: 5,
                       right: 5,
-                      //TODO: daha sonra ekle/çıkar için onTap eklenecek
+                      //TODO: daha sonra ekle/çıkar için onTap eklenecek buton ayarlanacak
                       child: CircleAvatar(
-                        backgroundColor: Colors.white,
+                        backgroundColor: Colors.white.withOpacity(0.9),
                         radius: 16,
                         child: Icon(
-                          product.isFavorite
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          color:
-                              product.isFavorite
-                                  ? AppColors.primary
-                                  : AppColors.textPrimary,
+                          Icons.favorite,
                           size: 18,
+                          color: AppColors.primary,
                         ),
                       ),
                     ),
@@ -94,7 +89,7 @@ class ProductCard extends StatelessWidget {
                   SizedBox(height: 4),
                   Text(
                     "₺ ${product.price.toStringAsFixed(2)}",
-                    style: const TextStyle(color: Colors.green),
+                    style: const TextStyle(color: AppColors.textPrimary),
                   ),
                 ],
               ),

@@ -1,6 +1,7 @@
-import 'package:cerci_online/core/widgets/product_card.dart';
-import 'package:cerci_online/core/widgets/secondary_appBar.dart';
-import 'package:cerci_online/features/home/presentation/store/home_store.dart';
+import 'package:cerci_online/core/widgets/products/product_card.dart';
+import 'package:cerci_online/core/widgets/appBar/secondary_appBar.dart';
+import 'package:cerci_online/features/product/presentation/pages/product_detail_page.dart';
+import 'package:cerci_online/features/product/presentation/store/product_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +12,7 @@ class ProductListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = context.watch<HomeStore>();
+    final store = context.watch<ProductStore>();
     return Scaffold(
       appBar: SecondaryAppBar(title: categoryName, showBack: true),
       body:
@@ -33,7 +34,13 @@ class ProductListPage extends StatelessWidget {
                     showFavorite: true,
                     showBestSeller: false,
                     onTap: () {
-                      print("${product.name} detay sayfasına yönlendirilecek");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (_) => ProductDetailPage(productId: product.id),
+                        ),
+                      );
                     },
                   );
                 },

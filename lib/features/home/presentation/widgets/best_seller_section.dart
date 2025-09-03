@@ -1,10 +1,11 @@
-import 'package:cerci_online/core/widgets/product_card.dart';
-import 'package:cerci_online/features/home/domain/entities/product_item.dart';
+import 'package:cerci_online/core/widgets/products/product_card.dart';
+import 'package:cerci_online/features/product/domain/entities/product.dart';
+import 'package:cerci_online/features/product/presentation/pages/product_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BestSellerSection extends StatelessWidget {
-  final List<ProductItem> product;
+  final List<Product> product;
   const BestSellerSection({super.key, required this.product});
 
   @override
@@ -33,9 +34,15 @@ class BestSellerSection extends StatelessWidget {
                 width: 145.w,
                 height: 200.h,
                 margin: EdgeInsets.only(right: 12.w),
-                //TODO: (onTap) ilgili ürünün detay sayfasına yönlendirilecek
                 onTap: () {
-                  print(" detay sayfasına yönlendirilecek");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (_) =>
+                              ProductDetailPage(productId: product[index].id),
+                    ),
+                  );
                 },
               );
             },

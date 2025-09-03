@@ -1,4 +1,4 @@
-import 'package:cerci_online/core/widgets/secondary_appBar.dart';
+import 'package:cerci_online/core/widgets/appBar/secondary_appBar.dart';
 import 'package:cerci_online/features/home/domain/entities/category_item.dart';
 import 'package:cerci_online/features/home/presentation/widgets/category_card.dart';
 import 'package:flutter/material.dart';

@@ -4,56 +4,51 @@
       "id": "PRD_1001",
       "name": "Margherita",
       "price": 169.90,
+      "oldPrice": 199.90,
       "imageUrl": "https://picsum.photos/400?marg",
       "categoryId": "cat_pizza",
-      "isBestSeller": true,
-      "isFavorite": false
+      "description": "Taze mozzarella, fesleğen ve domates sosuyla hazırlanan klasik Margherita pizza.",
+      "stock": 25
     },
     {
       "id": "PRD_1002",
       "name": "Double Burger",
       "price": 199.90,
+      "oldPrice": null,
       "imageUrl": "https://picsum.photos/400?double",
       "categoryId": "cat_burger",
-      "isBestSeller": true,
-      "isFavorite": true
+      "description": "Çift kat köfte, cheddar peyniri ve özel sos ile hazırlanan doyurucu burger.",
+      "stock": 12
     },
     {
       "id": "PRD_2001",
       "name": "Kola 330ml",
       "price": 39.90,
+      "oldPrice": 49.90,
       "imageUrl": "https://picsum.photos/400?cola",
       "categoryId": "cat_drink",
-      "isBestSeller": false,
-      "isFavorite": false
+      "description": "Buz gibi serinletici kola.",
+      "stock": 50
     },
-     {
-      "id": "PRD_1002",
-      "name": "Double Burger",
-      "price": 199.90,
-      "imageUrl": "https://picsum.photos/400?double",
-      "categoryId": "cat_burger",
-      "isBestSeller": true,
-      "isFavorite": true
+    {
+      "id": "PRD_2002",
+      "name": "Su 500ml",
+      "price": 14.90,
+      "oldPrice": null,
+      "imageUrl": "https://picsum.photos/400?water",
+      "categoryId": "cat_drink",
+      "description": "Doğal kaynak suyu.",
+      "stock": 100
     },
-     {
-      "id": "PRD_1002",
-      "name": "Double Burger",
-      "price": 199.90,
-      "imageUrl": "https://picsum.photos/400?double",
-      "categoryId": "cat_burger",
-      "isBestSeller": true,
-      "isFavorite": true
-    },
-     {
-      "id": "PRD_1002",
-      "name": "Double Burger",
-      "price": 199.90,
-      "imageUrl": "https://picsum.photos/400?double",
-      "categoryId": "cat_burger",
-      "isBestSeller": true,
-      "isFavorite": true
+    {
+      "id": "PRD_3001",
+      "name": "Tiramisu",
+      "price": 89.90,
+      "oldPrice": 109.90,
+      "imageUrl": "https://picsum.photos/400?tiramisu",
+      "categoryId": "cat_dessert",
+      "description": "Kakao, mascarpone peyniri ve espresso ile hazırlanan İtalyan tatlısı.",
+      "stock": 8
     }
-
   ]
 }

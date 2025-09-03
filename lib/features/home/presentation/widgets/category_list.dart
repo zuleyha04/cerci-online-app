@@ -2,8 +2,8 @@ import 'package:cerci_online/core/theme/app_colors.dart';
 import 'package:cerci_online/features/home/domain/entities/category_item.dart';
 import 'package:cerci_online/features/home/presentation/pages/all_categories.dart';
 import 'package:cerci_online/features/home/presentation/pages/product_list_page.dart';
-import 'package:cerci_online/features/home/presentation/store/home_store.dart';
 import 'package:cerci_online/features/home/presentation/widgets/category_card.dart';
+import 'package:cerci_online/features/product/presentation/store/product_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +15,7 @@ class CategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = context.watch<HomeStore>();
+    final store = context.watch<ProductStore>();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +61,7 @@ class CategoryList extends StatelessWidget {
                 width: 80.w,
                 padding: EdgeInsets.all(8.r),
                 onTap: () async {
-                  await store.loadProductsByCategory(category.id);
+                  await store.fetchProductsByCategory(category.id);
 
                   Navigator.push(
                     context,

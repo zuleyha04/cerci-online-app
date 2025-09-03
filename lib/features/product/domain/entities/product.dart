@@ -1,19 +1,21 @@
-class ProductItem {
+class Product {
   final String id;
   final String name;
   final double price;
+  final double? oldPrice;
   final String imageUrl;
   final String categoryId;
-  final bool isBestSeller;
-  final bool isFavorite;
+  final String? description;
+  final int stock;
 
-  const ProductItem({
+  const Product({
     required this.id,
     required this.name,
     required this.price,
     required this.imageUrl,
     required this.categoryId,
-    required this.isBestSeller,
-    required this.isFavorite,
+    this.oldPrice,
+    this.description,
+    required this.stock,
   });
 }
