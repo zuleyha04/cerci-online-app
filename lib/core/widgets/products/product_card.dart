@@ -1,7 +1,9 @@
 import 'package:cerci_online/core/theme/app_colors.dart';
 import 'package:cerci_online/features/product/domain/entities/product.dart';
+import 'package:cerci_online/features/product/presentation/store/product_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -63,15 +65,22 @@ class ProductCard extends StatelessWidget {
                     Positioned(
                       top: 5,
                       right: 5,
-                      //TODO: daha sonra ekle/çıkar için onTap eklenecek buton ayarlanacak
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white.withOpacity(0.9),
-                        radius: 16,
-                        child: Icon(
-                          Icons.favorite,
-                          size: 18,
-                          color: AppColors.primary,
-                        ),
+                      child: Consumer<ProductStore>(
+                        builder: (context, store, child) {
+                          final isFav = store.isFavorite(product.id);
+                          return GestureDetector(
+                            onTap: () => store.toggleFavorite(product),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white.withOpacity(0.9),
+                              radius: 16,
+                              child: Icon(
+                                isFav ? Icons.favorite : Icons.favorite_border,
+                                size: 18,
+                                color: isFav ? AppColors.primary : Colors.black,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                 ],

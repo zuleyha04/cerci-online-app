@@ -6,10 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ProductBottomBar extends StatelessWidget {
   final Product product;
   final int quantity;
+  final bool isActive;
   const ProductBottomBar({
     super.key,
     required this.product,
     required this.quantity,
+    required this.isActive,
   });
 
   @override
@@ -46,19 +48,23 @@ class ProductBottomBar extends StatelessWidget {
                 ),
             ],
           ),
+          //TODO:daha sonra özelleştirilecek
           ElevatedButton(
-            onPressed: () {
-              print("${product.name} sepete eklendi");
-            },
+            onPressed:
+                isActive
+                    ? () {
+                      print("${product.name} sepete eklendi");
+                    }
+                    : null,
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primary,
+              backgroundColor: isActive ? AppColors.primary : Colors.grey,
               padding: EdgeInsets.symmetric(horizontal: 72.w, vertical: 12.h),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
             child: Text(
-              "Sepete Ekle",
+              isActive ? "Sepete Ekle" : "Stokta Yok",
               style: TextStyle(
                 fontSize: 16.sp,
                 color: AppColors.textPrimary,

@@ -1,8 +1,11 @@
 import 'package:cerci_online/features/product/domain/entities/product.dart';
-import 'package:cerci_online/features/product/domain/usecases/get_best_seller.dart';
-import 'package:cerci_online/features/product/domain/usecases/get_product_by_category.dart';
-import 'package:cerci_online/features/product/domain/usecases/get_product_detail.dart';
-import 'package:cerci_online/features/product/domain/usecases/get_product_list.dart';
+import 'package:cerci_online/features/product/domain/usecases/favorite/get_favorites.dart';
+import 'package:cerci_online/features/product/domain/usecases/favorite/is_favorite.dart';
+import 'package:cerci_online/features/product/domain/usecases/favorite/toggle_favorite.dart';
+import 'package:cerci_online/features/product/domain/usecases/product/get_best_seller.dart';
+import 'package:cerci_online/features/product/domain/usecases/product/get_product_by_category.dart';
+import 'package:cerci_online/features/product/domain/usecases/product/get_product_detail.dart';
+import 'package:cerci_online/features/product/domain/usecases/product/get_product_list.dart';
 import 'package:flutter/foundation.dart';
 
 class ProductStore extends ChangeNotifier {
@@ -10,12 +13,18 @@ class ProductStore extends ChangeNotifier {
   final GetProductDetail _getProductDetail;
   final GetBestSeller _getBestSeller;
   final GetProductByCategory _getProductByCategory;
+  final GetFavorites _getFavorites;
+  final IsFavorite _isFavorite;
+  final ToggleFavorite _toggleFavorite;
 
   ProductStore(
     this._getProductList,
     this._getProductDetail,
     this._getBestSeller,
     this._getProductByCategory,
+    this._getFavorites,
+    this._isFavorite,
+    this._toggleFavorite,
   );
 
   List<Product> _products = [];
@@ -27,6 +36,8 @@ class ProductStore extends ChangeNotifier {
   List<Product> get products => _products;
   List<Product> get bestSellers => _bestSellers;
   Product? get selectedProduct => _selectedProduct;
+  List<Product> get favorites => _getFavorites();
+  bool isFavorite(String productId) => _isFavorite(productId);
   bool get isLoading => _isLoading;
   String? get error => _error;
 
@@ -87,5 +98,10 @@ class ProductStore extends ChangeNotifier {
     }
 
     _endLoading();
+  }
+
+  Future<void> toggleFavorite(Product product) async {
+    await _toggleFavorite(product);
+    notifyListeners();
   }
 }

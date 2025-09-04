@@ -6,12 +6,17 @@ import 'package:cerci_online/features/home/data/repositories/category_repository
 import 'package:cerci_online/features/home/domain/repositories/banner_repository.dart';
 import 'package:cerci_online/features/home/domain/repositories/category_repository.dart';
 import 'package:cerci_online/features/product/data/datasources/product_remote_datasource.dart';
+import 'package:cerci_online/features/product/data/repositories/favorite_repository_impl.dart';
 import 'package:cerci_online/features/product/data/repositories/product_repository_impl.dart';
+import 'package:cerci_online/features/product/domain/repositories/favorite_repository.dart';
 import 'package:cerci_online/features/product/domain/repositories/product_repository.dart';
-import 'package:cerci_online/features/product/domain/usecases/get_best_seller.dart';
-import 'package:cerci_online/features/product/domain/usecases/get_product_by_category.dart';
-import 'package:cerci_online/features/product/domain/usecases/get_product_detail.dart';
-import 'package:cerci_online/features/product/domain/usecases/get_product_list.dart';
+import 'package:cerci_online/features/product/domain/usecases/favorite/get_favorites.dart';
+import 'package:cerci_online/features/product/domain/usecases/favorite/is_favorite.dart';
+import 'package:cerci_online/features/product/domain/usecases/favorite/toggle_favorite.dart';
+import 'package:cerci_online/features/product/domain/usecases/product/get_best_seller.dart';
+import 'package:cerci_online/features/product/domain/usecases/product/get_product_by_category.dart';
+import 'package:cerci_online/features/product/domain/usecases/product/get_product_detail.dart';
+import 'package:cerci_online/features/product/domain/usecases/product/get_product_list.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -52,6 +57,7 @@ void _registerProduct() {
   sl.registerLazySingleton<ProductRepository>(
     () => ProductRepositoryImpl(sl<ProductRemoteDataSource>()),
   );
+  sl.registerLazySingleton<FavoriteRepository>(() => FavoriteRepositoryImpl());
 
   // UseCases
   sl.registerLazySingleton<GetProductList>(() => GetProductList(sl()));
@@ -60,4 +66,8 @@ void _registerProduct() {
   sl.registerLazySingleton<GetProductByCategory>(
     () => GetProductByCategory(sl()),
   );
+
+  sl.registerLazySingleton<GetFavorites>(() => GetFavorites(sl()));
+  sl.registerLazySingleton<IsFavorite>(() => IsFavorite(sl()));
+  sl.registerLazySingleton<ToggleFavorite>(() => ToggleFavorite(sl()));
 }

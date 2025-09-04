@@ -28,21 +28,25 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: SecondaryAppBar(title: '', showBack: true),
-      body: Consumer<ProductStore>(
-        builder: (context, store, child) {
-          if (store.isLoading) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (store.error != null) {
-            return Center(child: Text(store.error!));
-          } else if (store.selectedProduct == null) {
-            return Center(child: Text("Product not found"));
-          }
-          final product = store.selectedProduct!;
-          return Column(
+    return Consumer<ProductStore>(
+      builder: (context, store, child) {
+        if (store.isLoading) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (store.error != null) {
+          return Center(child: Text(store.error!));
+        } else if (store.selectedProduct == null) {
+          return Center(child: Text("Product not found"));
+        }
+        final product = store.selectedProduct!;
+
+        return Scaffold(
+          appBar: SecondaryAppBar(title: '', showBack: true),
+          body: Column(
             children: [
-              ProductImageSection(imageUrl: product.imageUrl),
+              ProductImageSection(
+                imageUrl: product.imageUrl,
+                productId: product.id,
+              ),
               Expanded(
                 child: ProductInfoSection(
                   product: product,
@@ -55,18 +59,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ),
               ),
             ],
-          );
-        },
-      ),
-      bottomNavigationBar: Consumer<ProductStore>(
-        builder: (context, store, child) {
-          if (store.selectedProduct == null) {
-            return const SizedBox.shrink();
-          }
-          final product = store.selectedProduct!;
-          return ProductBottomBar(product: product, quantity: quantity);
-        },
-      ),
+          ),
+          bottomNavigationBar: ProductBottomBar(
+            product: product,
+            quantity: quantity,
+            isActive: product.stock > 0,
+          ),
+        );
+      },
     );
   }
 }

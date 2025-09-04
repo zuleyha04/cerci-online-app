@@ -18,7 +18,7 @@
       "imageUrl": "https://picsum.photos/400?double",
       "categoryId": "cat_burger",
       "description": "Çift kat köfte, cheddar peyniri ve özel sos ile hazırlanan doyurucu burger.",
-      "stock": 12
+      "stock": 0
     },
     {
       "id": "PRD_2001",

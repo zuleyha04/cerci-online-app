@@ -19,7 +19,7 @@ class ProductListPage extends StatelessWidget {
           store.isLoading
               ? const Center(child: CircularProgressIndicator())
               : GridView.builder(
-                padding: EdgeInsets.all(12.r),
+                padding: EdgeInsets.all(12),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 12.w,
