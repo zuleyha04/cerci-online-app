@@ -11,7 +11,7 @@
       "stock": 25
     },
     {
-      "id": "PRD_1002",
+      "id": "PRD_1101",
       "name": "Double Burger",
       "price": 199.90,
       "oldPrice": null,
@@ -49,6 +49,176 @@
       "categoryId": "cat_dessert",
       "description": "Kakao, mascarpone peyniri ve espresso ile hazırlanan İtalyan tatlısı.",
       "stock": 8
+    },
+    {
+      "id": "PRD_1002",
+      "name": "Pepperoni",
+      "price": 189.90,
+      "oldPrice": 209.90,
+      "imageUrl": "https://picsum.photos/400?pepperoni",
+      "categoryId": "cat_pizza",
+      "description": "Bol pepperoni, mozzarella ve domates sosuyla hazırlanmış nefis pizza.",
+      "stock": 15
+    },
+    {
+      "id": "PRD_1003",
+      "name": "Dört Peynirli",
+      "price": 199.90,
+      "oldPrice": 229.90,
+      "imageUrl": "https://picsum.photos/400?cheese",
+      "categoryId": "cat_pizza",
+      "description": "Mozzarella, parmesan, rokfor ve cheddar peynirleriyle dolu eşsiz lezzet.",
+      "stock": 12
+    },
+    {
+      "id": "PRD_1004",
+      "name": "BBQ Tavuklu",
+      "price": 209.90,
+      "oldPrice": null,
+      "imageUrl": "https://picsum.photos/400?bbqchicken",
+      "categoryId": "cat_pizza",
+      "description": "Barbekü soslu tavuk parçaları, mozzarella ve kırmızı soğan ile hazırlanan pizza.",
+      "stock": 18
+    },
+    {
+      "id": "PRD_1005",
+      "name": "Vejetaryen",
+      "price": 179.90,
+      "oldPrice": 199.90,
+      "imageUrl": "https://picsum.photos/400?veggie",
+      "categoryId": "cat_pizza",
+      "description": "Taze sebzelerle hazırlanmış hafif ve lezzetli pizza.",
+      "stock": 20
+    },
+    {
+      "id": "PRD_1006",
+      "name": "Mexican",
+      "price": 209.90,
+      "oldPrice": 239.90,
+      "imageUrl": "https://picsum.photos/400?mexican",
+      "categoryId": "cat_pizza",
+      "description": "Acı jalapeno, mısır ve kıyma ile Meksika esintili pizza.",
+      "stock": 10
+    },
+    {
+      "id": "PRD_1007",
+      "name": "Deniz Mahsullü",
+      "price": 229.90,
+      "oldPrice": null,
+      "imageUrl": "https://picsum.photos/400?seafood",
+      "categoryId": "cat_pizza",
+      "description": "Karides, kalamar ve mozzarella peyniri ile deniz mahsulleri pizzası.",
+      "stock": 5
+    },
+    {
+      "id": "PRD_1008",
+      "name": "Kavurmalı",
+      "price": 219.90,
+      "oldPrice": 239.90,
+      "imageUrl": "https://picsum.photos/400?kavurma",
+      "categoryId": "cat_pizza",
+      "description": "Özel kavurma, kaşar ve domates soslu Türk mutfağından ilham pizza.",
+      "stock": 14
+    },
+    {
+      "id": "PRD_1009",
+      "name": "Trüflü Mantar",
+      "price": 249.90,
+      "oldPrice": 279.90,
+      "imageUrl": "https://picsum.photos/400?truffle",
+      "categoryId": "cat_pizza",
+      "description": "Trüf yağı, taze mantar ve mozzarella ile gurme pizza.",
+      "stock": 7
+    },
+    {
+      "id": "PRD_1010",
+      "name": "Ananaslı Hawaii",
+      "price": 199.90,
+      "oldPrice": null,
+      "imageUrl": "https://picsum.photos/400?hawaiian",
+      "categoryId": "cat_pizza",
+      "description": "Ananas, jambon ve mozzarella peyniriyle hazırlanan Hawaii pizzası.",
+      "stock": 22
+    },
+    {
+      "id": "PRD_2003",
+      "name": "Gazoz 330ml",
+      "price": 34.90,
+      "oldPrice": 39.90,
+      "imageUrl": "https://picsum.photos/400?gazoz",
+      "categoryId": "cat_drink",
+      "description": "Serinletici limon aromalı gazoz.",
+      "stock": 40
+    },
+    {
+      "id": "PRD_2004",
+      "name": "Ayran 300ml",
+      "price": 19.90,
+      "oldPrice": null,
+      "imageUrl": "https://picsum.photos/400?ayran",
+      "categoryId": "cat_drink",
+      "description": "Yoğurttan yapılmış geleneksel içecek.",
+      "stock": 70
+    },
+    {
+      "id": "PRD_2005",
+      "name": "Meyveli Soda",
+      "price": 24.90,
+      "oldPrice": 29.90,
+      "imageUrl": "https://picsum.photos/400?soda",
+      "categoryId": "cat_drink",
+      "description": "Meyve aromalı maden suyu.",
+      "stock": 60
+    },
+    {
+      "id": "PRD_2006",
+      "name": "Portakal Suyu 250ml",
+      "price": 44.90,
+      "oldPrice": 49.90,
+      "imageUrl": "https://picsum.photos/400?orange",
+      "categoryId": "cat_drink",
+      "description": "Taze sıkılmış portakal suyu.",
+      "stock": 35
+    },
+    {
+      "id": "PRD_2007",
+      "name": "Elma Suyu 250ml",
+      "price": 44.90,
+      "oldPrice": null,
+      "imageUrl": "https://picsum.photos/400?applejuice",
+      "categoryId": "cat_drink",
+      "description": "Doğal elma suyu.",
+      "stock": 30
+    },
+    {
+      "id": "PRD_2008",
+      "name": "Enerji İçeceği 250ml",
+      "price": 59.90,
+      "oldPrice": 69.90,
+      "imageUrl": "https://picsum.photos/400?energy",
+      "categoryId": "cat_drink",
+      "description": "Güçlü enerji takviyesi için özel formül.",
+      "stock": 25
+    },
+    {
+      "id": "PRD_2009",
+      "name": "Soğuk Çay 500ml",
+      "price": 29.90,
+      "oldPrice": 34.90,
+      "imageUrl": "https://picsum.photos/400?icetea",
+      "categoryId": "cat_drink",
+      "description": "Şeftali aromalı buz gibi soğuk çay.",
+      "stock": 55
+    },
+    {
+      "id": "PRD_2010",
+      "name": "Limonata 330ml",
+      "price": 27.90,
+      "oldPrice": null,
+      "imageUrl": "https://picsum.photos/400?lemonade",
+      "categoryId": "cat_drink",
+      "description": "Serinletici taze limonata.",
+      "stock": 45
     }
   ]
 }

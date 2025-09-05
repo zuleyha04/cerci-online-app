@@ -17,6 +17,7 @@ import 'package:cerci_online/features/product/domain/usecases/product/get_best_s
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_by_category.dart';
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_detail.dart';
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_list.dart';
+import 'package:cerci_online/features/product/domain/usecases/search/search_products.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -70,4 +71,6 @@ void _registerProduct() {
   sl.registerLazySingleton<GetFavorites>(() => GetFavorites(sl()));
   sl.registerLazySingleton<IsFavorite>(() => IsFavorite(sl()));
   sl.registerLazySingleton<ToggleFavorite>(() => ToggleFavorite(sl()));
+
+  sl.registerLazySingleton<SearchProducts>(() => SearchProducts(sl()));
 }

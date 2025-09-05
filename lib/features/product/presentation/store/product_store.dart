@@ -6,6 +6,7 @@ import 'package:cerci_online/features/product/domain/usecases/product/get_best_s
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_by_category.dart';
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_detail.dart';
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_list.dart';
+import 'package:cerci_online/features/product/domain/usecases/search/search_products.dart';
 import 'package:flutter/foundation.dart';
 
 class ProductStore extends ChangeNotifier {
@@ -16,6 +17,7 @@ class ProductStore extends ChangeNotifier {
   final GetFavorites _getFavorites;
   final IsFavorite _isFavorite;
   final ToggleFavorite _toggleFavorite;
+  final SearchProducts _searchProducts;
 
   ProductStore(
     this._getProductList,
@@ -25,11 +27,14 @@ class ProductStore extends ChangeNotifier {
     this._getFavorites,
     this._isFavorite,
     this._toggleFavorite,
+    this._searchProducts,
   );
 
   List<Product> _products = [];
   List<Product> _bestSellers = [];
+  List<Product> _searchResults = [];
   Product? _selectedProduct;
+  bool _isSearching = false;
   bool _isLoading = false;
   String? _error;
 
@@ -37,7 +42,9 @@ class ProductStore extends ChangeNotifier {
   List<Product> get bestSellers => _bestSellers;
   Product? get selectedProduct => _selectedProduct;
   List<Product> get favorites => _getFavorites();
+  List<Product> get searchResults => _searchResults;
   bool isFavorite(String productId) => _isFavorite(productId);
+  bool get isSearching => _isSearching;
   bool get isLoading => _isLoading;
   String? get error => _error;
 
@@ -103,5 +110,22 @@ class ProductStore extends ChangeNotifier {
   Future<void> toggleFavorite(Product product) async {
     await _toggleFavorite(product);
     notifyListeners();
+  }
+
+  Future<void> searchProducts(String keyword) async {
+    if (keyword.isEmpty) {
+      _isSearching = false;
+      notifyListeners();
+      return;
+    }
+
+    _isSearching = true;
+    _startLoading();
+    try {
+      _searchResults = await _searchProducts(keyword);
+    } catch (e) {
+      _error = "Failed to search products: $e";
+    }
+    _endLoading();
   }
 }

@@ -95,7 +95,7 @@ class ProductCard extends StatelessWidget {
                     product.name,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: 3.h),
                   Text(
                     "₺ ${product.price.toStringAsFixed(2)}",
                     style: const TextStyle(color: AppColors.textPrimary),

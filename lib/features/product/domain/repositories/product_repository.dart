@@ -5,4 +5,5 @@ abstract class ProductRepository {
   Future<List<Product>> getBestSeller();
   Future<Product> getProductDetail(String id);
   Future<List<Product>> getProductsByCategory(String categoryId);
+  Future<List<Product>> searchProducts(String keyword);
 }

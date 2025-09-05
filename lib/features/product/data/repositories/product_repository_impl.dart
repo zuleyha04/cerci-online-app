@@ -1,6 +1,7 @@
 import 'package:cerci_online/features/product/data/datasources/product_remote_datasource.dart';
 import 'package:cerci_online/features/product/domain/entities/product.dart';
 import 'package:cerci_online/features/product/domain/repositories/product_repository.dart';
+import 'package:diacritic/diacritic.dart';
 
 class ProductRepositoryImpl implements ProductRepository {
   final ProductRemoteDataSource remoteDatasource;
@@ -35,6 +36,24 @@ class ProductRepositoryImpl implements ProductRepository {
     return models
         .where((m) => m.categoryId == categoryId)
         .map((m) => m.toEntity())
+        .toList();
+  }
+
+  @override
+  Future<List<Product>> searchProducts(String keyword) async {
+    final allProducts = await remoteDatasource.getProductList();
+    String normalize(String input) =>
+        removeDiacritics(input.toLowerCase().trim());
+
+    final normalizedKeyword = normalize(keyword);
+
+    return allProducts
+        .where(
+          (p) =>
+              normalize(p.name).contains(normalizedKeyword) ||
+              normalize(p.categoryId).contains(normalizedKeyword),
+        )
+        .map((p) => p.toEntity())
         .toList();
   }
 }

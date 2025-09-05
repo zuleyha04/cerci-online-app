@@ -11,6 +11,7 @@ import 'package:cerci_online/features/product/domain/usecases/product/get_best_s
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_by_category.dart';
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_detail.dart';
 import 'package:cerci_online/features/product/domain/usecases/product/get_product_list.dart';
+import 'package:cerci_online/features/product/domain/usecases/search/search_products.dart';
 import 'package:cerci_online/features/product/presentation/store/product_store.dart';
 import 'package:cerci_online/features/splash/presentation/pages/splash.dart';
 import 'package:cerci_online/shell/tabs/presentation/pages/tabs.dart';
@@ -41,6 +42,7 @@ Future<void> main() async {
                 sl<GetFavorites>(),
                 sl<IsFavorite>(),
                 sl<ToggleFavorite>(),
+                sl<SearchProducts>(),
               ),
         ),
       ],
