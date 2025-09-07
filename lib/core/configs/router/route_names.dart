@@ -9,11 +9,12 @@ class RouteNames {
 
   //off-tab
   static const categories = '/categories';
-  static const checkout = '/checkout';
+
   static const productDetail = '/product-detail';
-  static const aboutMe = '/aboutMe';
-  static const orders = '/orders';
-  static const address = '/address';
-  static const cards = '/cards';
-  static const notifications = '/notifications';
+  static const about = "/about";
+  static const orders = "/orders";
+  static const addresses = "/addresses";
+  static const cards = "/cards";
+  static const notifications = "/notifications";
+  static const logout = "/logout";
 }
