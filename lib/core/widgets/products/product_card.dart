@@ -88,17 +88,44 @@ class ProductCard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.all(8.r),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    product.name,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        product.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 1.h),
+                      Text(
+                        "₺ ${product.price.toStringAsFixed(2)}",
+                        style: const TextStyle(color: AppColors.textPrimary),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 3.h),
-                  Text(
-                    "₺ ${product.price.toStringAsFixed(2)}",
-                    style: const TextStyle(color: AppColors.textPrimary),
+                  SizedBox(
+                    width: 30.w,
+                    height: 30.h,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: EdgeInsets.zero,
+                      ),
+                      onPressed: () {
+                        //TODO:Başarılıysa Flashbar gösterilecek
+                        print("Sepete eklenecek :)");
+                      },
+                      child: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                    ),
                   ),
                 ],
               ),
