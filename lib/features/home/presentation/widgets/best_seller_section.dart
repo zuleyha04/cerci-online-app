@@ -1,4 +1,4 @@
-import 'package:cerci_online/core/widgets/products/product_card.dart';
+import 'package:cerci_online/features/product/presentation/widgets/product_card.dart';
 import 'package:cerci_online/features/product/domain/entities/product.dart';
 import 'package:cerci_online/features/product/presentation/pages/product_detail_page.dart';
 import 'package:flutter/material.dart';

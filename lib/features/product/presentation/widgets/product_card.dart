@@ -88,44 +88,38 @@ class ProductCard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.all(8.r),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Text(
+                    product.name,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 1.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        product.name,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 1.h),
                       Text(
                         "₺ ${product.price.toStringAsFixed(2)}",
                         style: const TextStyle(color: AppColors.textPrimary),
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 30.w,
-                    height: 30.h,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                      IconButton(
+                        onPressed: () {
+                          //TODO:Başarılıysa flashbar göster
+                          print("sepete eklenecek :)");
+                        },
+                        icon: const Icon(Icons.add, size: 18),
+                        style: IconButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          foregroundColor: Colors.white,
+                          minimumSize: Size(30.w, 30.h),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: EdgeInsets.zero,
                         ),
-                        padding: EdgeInsets.zero,
                       ),
-                      onPressed: () {
-                        //TODO:Başarılıysa Flashbar gösterilecek
-                        print("Sepete eklenecek :)");
-                      },
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                    ),
+                    ],
                   ),
                 ],
               ),
