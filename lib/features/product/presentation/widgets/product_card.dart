@@ -1,4 +1,7 @@
 import 'package:cerci_online/core/theme/app_colors.dart';
+import 'package:cerci_online/core/helpers/flushbar_helper.dart';
+import 'package:cerci_online/features/cart/domain/entities/card_item.dart';
+import 'package:cerci_online/features/cart/presentation/store/cart_store.dart';
 import 'package:cerci_online/features/product/domain/entities/product.dart';
 import 'package:cerci_online/features/product/presentation/store/product_store.dart';
 import 'package:flutter/material.dart';
@@ -106,7 +109,22 @@ class ProductCard extends StatelessWidget {
                       IconButton(
                         onPressed: () {
                           //TODO:Başarılıysa flashbar göster
-                          print("sepete eklenecek :)");
+                          final cartStore = context.read<CartStore>();
+
+                          cartStore.addItem(
+                            CartItem(
+                              productId: product.id,
+                              name: product.name,
+                              price: product.price,
+                              imageUrl: product.imageUrl,
+                            ),
+                          );
+
+                          FlushbarHelper.showSuccess(
+                            context,
+                            "Ürün sepete eklendi!",
+                          );
+                          print("sepete eklendi");
                         },
                         icon: const Icon(Icons.add, size: 18),
                         style: IconButton.styleFrom(

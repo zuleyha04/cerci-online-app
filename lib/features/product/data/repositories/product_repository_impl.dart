@@ -1,4 +1,4 @@
-import 'package:cerci_online/features/product/data/datasources/product_remote_datasource.dart';
+import 'package:cerci_online/features/product/data/datasources/product_remote_data_source.dart';
 import 'package:cerci_online/features/product/domain/entities/product.dart';
 import 'package:cerci_online/features/product/domain/repositories/product_repository.dart';
 import 'package:diacritic/diacritic.dart';

@@ -1,5 +1,5 @@
 import 'package:cerci_online/features/product/presentation/widgets/product_card.dart';
-import 'package:cerci_online/core/widgets/appBar/secondary_appBar.dart';
+import 'package:cerci_online/common/widgets/appBar/secondary_appBar.dart';
 import 'package:cerci_online/features/product/presentation/pages/product_detail_page.dart';
 import 'package:cerci_online/features/product/presentation/store/product_store.dart';
 import 'package:flutter/material.dart';

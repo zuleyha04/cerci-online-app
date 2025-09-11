@@ -1,7 +1,11 @@
 import 'package:cerci_online/core/theme/app_colors.dart';
+import 'package:cerci_online/core/helpers/flushbar_helper.dart';
+import 'package:cerci_online/features/cart/domain/entities/card_item.dart';
+import 'package:cerci_online/features/cart/presentation/store/cart_store.dart';
 import 'package:cerci_online/features/product/domain/entities/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class ProductBottomBar extends StatelessWidget {
   final Product product;
@@ -53,7 +57,22 @@ class ProductBottomBar extends StatelessWidget {
             onPressed:
                 isActive
                     ? () {
+                      final cartStore = context.read<CartStore>();
+
+                      cartStore.addItem(
+                        CartItem(
+                          productId: product.id,
+                          name: product.name,
+                          price: product.price,
+                          quantity: quantity,
+                          imageUrl: product.imageUrl,
+                        ),
+                      );
                       print("${product.name} sepete eklendi");
+                      FlushbarHelper.showSuccess(
+                        context,
+                        "Ürün sepete eklendi!",
+                      );
                     }
                     : null,
             style: ElevatedButton.styleFrom(

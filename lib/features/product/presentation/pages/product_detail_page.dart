@@ -1,4 +1,4 @@
-import 'package:cerci_online/core/widgets/appBar/secondary_appBar.dart';
+import 'package:cerci_online/common/widgets/appBar/secondary_appBar.dart';
 import 'package:cerci_online/features/product/presentation/store/product_store.dart';
 import 'package:cerci_online/features/product/presentation/widgets/product_bottom_bar.dart';
 import 'package:cerci_online/features/product/presentation/widgets/product_image_section.dart';

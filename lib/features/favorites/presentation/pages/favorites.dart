@@ -1,4 +1,4 @@
-import 'package:cerci_online/core/widgets/appBar/common_appBar.dart';
+import 'package:cerci_online/common/widgets/appBar/common_appBar.dart';
 import 'package:cerci_online/features/product/presentation/widgets/product_card.dart';
 import 'package:cerci_online/features/product/presentation/pages/product_detail_page.dart';
 import 'package:cerci_online/features/product/presentation/store/product_store.dart';
@@ -24,7 +24,7 @@ class FavoritesPage extends StatelessWidget {
                 children: [
                   Icon(Icons.favorite),
                   SizedBox(height: 3.h),
-                  Text("Henüz favorilere ürün eklemediniz"),
+                  Text("Henüz favorilere ürün eklemediniz !"),
                 ],
               ),
             );
