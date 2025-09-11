@@ -31,7 +31,7 @@ class _TabsPageState extends State<TabsPage> {
     return Scaffold(
       body: IndexedStack(index: _index, children: _pages),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 16.h),
+        padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 4.h),
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(.80),

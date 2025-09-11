@@ -35,11 +35,13 @@ class CartTotalSection extends StatelessWidget {
           //özelleştirilip common'a taşınacak
           ElevatedButton(
             onPressed: () {
-              print("Sepeyi onayla sayfasına yönlendirilecek");
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => RegisterPage()),
-              );
+              print("Sepeti onayla sayfasına yönlendirilecek");
+              Future.microtask(() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const RegisterPage()),
+                );
+              });
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,
