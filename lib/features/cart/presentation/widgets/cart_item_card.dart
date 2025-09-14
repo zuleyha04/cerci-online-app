@@ -1,4 +1,4 @@
-import 'package:cerci_online/core/helpers/flushbar_helper.dart';
+import 'package:cerci_online/core/helpers/top_snackbar_helper.dart';
 import 'package:cerci_online/features/cart/domain/entities/card_item.dart';
 import 'package:cerci_online/features/cart/presentation/store/cart_store.dart';
 import 'package:cerci_online/features/product/presentation/pages/product_detail_page.dart';
@@ -60,9 +60,10 @@ class CartItemCard extends StatelessWidget {
                         IconButton(
                           onPressed: () {
                             store.removeItem(item.productId);
-                            FlushbarHelper.showSuccess(
+
+                            TopSnackbarHelper.showSuccess(
                               context,
-                              "Ürün sepetten kaldırıldı!",
+                              "Ürün sepetten kaldırıldı !",
                             );
                           },
                           icon: Icon(

@@ -42,7 +42,7 @@ class SearchResultsPage extends StatelessWidget {
             },
           );
         } else {
-          return Center(child: Text("Ürünn bulunamadı"));
+          return Center(child: Text("Ürün bulunamadı"));
         }
       },
     );

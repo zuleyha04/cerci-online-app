@@ -1,5 +1,5 @@
+import 'package:cerci_online/core/helpers/top_snackbar_helper.dart';
 import 'package:cerci_online/core/theme/app_colors.dart';
-import 'package:cerci_online/core/helpers/flushbar_helper.dart';
 import 'package:cerci_online/features/cart/domain/entities/card_item.dart';
 import 'package:cerci_online/features/cart/presentation/store/cart_store.dart';
 import 'package:cerci_online/features/product/domain/entities/product.dart';
@@ -119,11 +119,11 @@ class ProductCard extends StatelessWidget {
                               imageUrl: product.imageUrl,
                             ),
                           );
-
-                          FlushbarHelper.showSuccess(
+                          TopSnackbarHelper.showSuccess(
                             context,
-                            "Ürün sepete eklendi!",
+                            "Ürün sepete eklendi !",
                           );
+
                           print("sepete eklendi");
                         },
                         icon: const Icon(Icons.add, size: 18),
