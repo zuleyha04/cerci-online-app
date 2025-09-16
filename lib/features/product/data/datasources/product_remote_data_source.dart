@@ -7,7 +7,7 @@ abstract class ProductRemoteDataSource {
 }
 
 class ProductRemoteDataSourceMock implements ProductRemoteDataSource {
-  ProductRemoteDataSourceMock(Object object);
+  ProductRemoteDataSourceMock();
 
   @override
   Future<List<ProductModel>> getProductList() async {

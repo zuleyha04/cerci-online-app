@@ -1,4 +1,4 @@
-import 'package:cerci_online/common/widgets/appBar/secondary_appBar.dart';
+import 'package:cerci_online/common/widgets/appBar/secondary_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:cerci_online/common/widgets/appBar/common_appBar.dart';
+import 'package:cerci_online/common/widgets/appBar/common_app_bar.dart';
 import 'package:cerci_online/features/cart/presentation/store/cart_store.dart';
 import 'package:cerci_online/features/cart/presentation/widgets/cart_item_card.dart';
 import 'package:cerci_online/features/cart/presentation/widgets/cart_total_section.dart';

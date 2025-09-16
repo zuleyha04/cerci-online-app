@@ -1,4 +1,4 @@
-import 'package:cerci_online/core/theme/app_colors.dart';
+import 'package:cerci_online/common/widgets/buttons/common_button.dart';
 import 'package:cerci_online/features/cart/presentation/store/cart_store.dart';
 import 'package:cerci_online/features/register/presentataion/pages/register_page.dart';
 import 'package:flutter/material.dart';
@@ -32,32 +32,17 @@ class CartTotalSection extends StatelessWidget {
               ),
             ],
           ),
-          //özelleştirilip common'a taşınacak
-          ElevatedButton(
+          CommonButton(
             onPressed: () {
-              print("Sepeti onayla sayfasına yönlendirilecek");
-              Future.microtask(() {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const RegisterPage()),
-                );
-              });
+              //TODO:Kayıtlı ise Sepeti onayla sayfasına değilse register'a yönlendirilecek
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const RegisterPage()),
+              );
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primary,
-              padding: EdgeInsets.symmetric(horizontal: 65.w, vertical: 12.h),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            child: Text(
-              "Sepeti Onayla",
-              style: TextStyle(
-                fontSize: 16.sp,
-                color: AppColors.textPrimary,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            text: "Sepeti Onayla",
+            horizontalPadding: 65.w,
+            verticalPadding: 12.h,
           ),
         ],
       ),

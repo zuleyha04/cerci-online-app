@@ -1,5 +1,5 @@
 import 'package:cerci_online/core/configs/router/route_names.dart';
-import 'package:cerci_online/common/widgets/appBar/common_appBar.dart';
+import 'package:cerci_online/common/widgets/appBar/common_app_bar.dart';
 import 'package:cerci_online/features/profile/presentation/widgets/profile_menu_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

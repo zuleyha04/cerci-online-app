@@ -108,7 +108,6 @@ class ProductCard extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {
-                          //TODO:Başarılıysa flashbar göster
                           final cartStore = context.read<CartStore>();
 
                           cartStore.addItem(
@@ -123,8 +122,6 @@ class ProductCard extends StatelessWidget {
                             context,
                             "Ürün sepete eklendi !",
                           );
-
-                          print("sepete eklendi");
                         },
                         icon: const Icon(Icons.add, size: 18),
                         style: IconButton.styleFrom(

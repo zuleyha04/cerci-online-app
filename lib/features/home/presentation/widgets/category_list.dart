@@ -29,7 +29,7 @@ class CategoryList extends StatelessWidget {
                 "Kategoriler",
                 style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
               ),
-              TextButton(
+              IconButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -38,7 +38,7 @@ class CategoryList extends StatelessWidget {
                     ),
                   );
                 },
-                child: Icon(
+                icon: Icon(
                   Icons.arrow_forward_ios,
                   size: 15.sp,
                   color: AppColors.textPrimary,

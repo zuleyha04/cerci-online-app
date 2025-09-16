@@ -1,14 +1,14 @@
 import 'package:cerci_online/features/home/domain/entities/banner_item.dart';
 import 'package:cerci_online/features/home/domain/entities/category_item.dart';
-import 'package:cerci_online/features/home/domain/repositories/banner_repository.dart';
-import 'package:cerci_online/features/home/domain/repositories/category_repository.dart';
+import 'package:cerci_online/features/home/domain/usecases/get_banners.dart';
+import 'package:cerci_online/features/home/domain/usecases/get_categories.dart';
 import 'package:flutter/material.dart';
 
 class HomeStore extends ChangeNotifier {
-  final BannerRepository bannerRepository;
-  final CategoryRepository categoryRepository;
+  final GetBanners _getBanners;
+  final GetCategories _getCategories;
 
-  HomeStore(this.bannerRepository, this.categoryRepository);
+  HomeStore(this._getBanners, this._getCategories);
 
   List<BannerItem> _banners = [];
   List<CategoryItem> _categories = [];
@@ -35,7 +35,7 @@ class HomeStore extends ChangeNotifier {
     _startLoading();
 
     try {
-      _banners = await bannerRepository.getBanners();
+      _banners = await _getBanners();
     } catch (e) {
       _error = "Failed to load banners";
     }
@@ -47,7 +47,7 @@ class HomeStore extends ChangeNotifier {
     _startLoading();
 
     try {
-      _categories = await categoryRepository.getCategories();
+      _categories = await _getCategories();
     } catch (e) {
       _error = "Failed to load categories";
     }
@@ -59,8 +59,8 @@ class HomeStore extends ChangeNotifier {
     _startLoading();
 
     try {
-      _banners = await bannerRepository.getBanners();
-      _categories = await categoryRepository.getCategories();
+      _banners = await _getBanners();
+      _categories = await _getCategories();
     } catch (e) {
       _error = "Failed to load data";
     }

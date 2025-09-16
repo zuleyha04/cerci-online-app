@@ -7,14 +7,9 @@ class RouteNames {
   static const profile = '/profile';
   static const cart = '/cart';
 
-  //off-tab
-  static const categories = '/categories';
-
-  static const productDetail = '/product-detail';
   static const about = "/about";
   static const orders = "/orders";
   static const addresses = "/addresses";
   static const cards = "/cards";
-  static const notifications = "/notifications";
   static const logout = "/logout";
 }
