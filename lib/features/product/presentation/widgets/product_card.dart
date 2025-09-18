@@ -37,9 +37,9 @@ class ProductCard extends StatelessWidget {
         height: height,
         margin: margin,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           color: Colors.white,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black12,
               blurRadius: 4,
@@ -49,98 +49,101 @@ class ProductCard extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(12),
-                    ),
-                    child: Image.network(
-                      product.imageUrl,
-                      height: 140.h,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  if (showFavorite)
-                    Positioned(
-                      top: 5,
-                      right: 5,
-                      child: Consumer<ProductStore>(
-                        builder: (context, store, child) {
-                          final isFav = store.isFavorite(product.id);
-                          return GestureDetector(
-                            onTap: () => store.toggleFavorite(product),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.white.withOpacity(0.9),
-                              radius: 16,
-                              child: Icon(
-                                isFav ? Icons.favorite : Icons.favorite_border,
-                                size: 18,
-                                color: isFav ? AppColors.primary : Colors.black,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8.r),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    product.name,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 1.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "₺ ${product.price.toStringAsFixed(2)}",
-                        style: const TextStyle(color: AppColors.textPrimary),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          final cartStore = context.read<CartStore>();
-
-                          cartStore.addItem(
-                            CartItem(
-                              productId: product.id,
-                              name: product.name,
-                              price: product.price,
-                              imageUrl: product.imageUrl,
-                            ),
-                          );
-                          TopSnackbarHelper.showSuccess(
-                            context,
-                            "Ürün sepete eklendi !",
-                          );
-                        },
-                        icon: const Icon(Icons.add, size: 18),
-                        style: IconButton.styleFrom(
-                          backgroundColor: AppColors.primary,
-                          foregroundColor: Colors.white,
-                          minimumSize: Size(30.w, 30.h),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          padding: EdgeInsets.zero,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
+          children: [_buildImageWithFavorite(), _buildProductInfo(context)],
         ),
+      ),
+    );
+  }
+
+  Widget _buildImageWithFavorite() {
+    return Flexible(
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
+            child: Image.network(
+              product.imageUrl,
+              height: 140.h,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          if (showFavorite)
+            Positioned(
+              top: 5,
+              right: 5,
+              child: Consumer<ProductStore>(
+                builder: (context, store, child) {
+                  final isFav = store.isFavorite(product.id);
+                  return GestureDetector(
+                    onTap: () => store.toggleFavorite(product),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white.withOpacity(0.9),
+                      radius: 16.r,
+                      child: Icon(
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        size: 18.sp,
+                        color: isFav ? AppColors.primary : Colors.black,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProductInfo(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(8.r),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            product.name,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          SizedBox(height: 4.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "₺ ${product.price.toStringAsFixed(2)}",
+                style: const TextStyle(color: AppColors.textPrimary),
+              ),
+              _buildAddToCartButton(context),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAddToCartButton(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        final cartStore = context.read<CartStore>();
+        cartStore.addItem(
+          CartItem(
+            productId: product.id,
+            name: product.name,
+            price: product.price,
+            imageUrl: product.imageUrl,
+          ),
+        );
+        TopSnackbarHelper.showSuccess(context, "Ürün sepete eklendi!");
+      },
+      icon: const Icon(Icons.add, size: 18),
+      style: IconButton.styleFrom(
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+        minimumSize: Size(30.w, 30.h),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+        padding: EdgeInsets.zero,
       ),
     );
   }

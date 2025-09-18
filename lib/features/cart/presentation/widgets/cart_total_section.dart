@@ -1,6 +1,6 @@
 import 'package:cerci_online/common/widgets/buttons/common_button.dart';
 import 'package:cerci_online/features/cart/presentation/store/cart_store.dart';
-import 'package:cerci_online/features/register/presentataion/pages/register_page.dart';
+import 'package:cerci_online/features/register/presentataion/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +37,7 @@ class CartTotalSection extends StatelessWidget {
               //TODO:Kayıtlı ise Sepeti onayla sayfasına değilse register'a yönlendirilecek
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => const RegisterPage()),
+                MaterialPageRoute(builder: (_) => SignInPage()),
               );
             },
             text: "Sepeti Onayla",
